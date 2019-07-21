@@ -18,10 +18,15 @@ class SumList{
 
     System.out.println("Reverse Sum: " + backwardsSum(l1, l2));
 
+    l1.clear();
+    l2.clear();
+    addForward(l1, a);
+    addForward(l2, b);
+
     System.out.println("First linked list forward: " + l1);
     System.out.println("Second linked list forward: " + l2);
 
-    System.out.println("Forward Sum: ")
+    System.out.println("Forward Sum: " + forwardsSum(l1, l2));
 
   }
 
@@ -41,8 +46,53 @@ class SumList{
   LinkedList<Integer> l2){
     LinkedList<Integer> result = new LinkedList<Integer>();
     int remainder = 0;
+    int currDigitSum = 0;
 
     int index1 = 0;
     int index2 = 0;
+    while(index1 < l1.size() && index2 < l2.size()){
+      currDigitSum = l1.get(index1) + l2.get(index2) + remainder;
+      remainder = 0;
+      if(currDigitSum >= 10){
+        int temp = currDigitSum;
+        remainder = temp/10;
+        currDigitSum = currDigitSum%10;
+      }
+      if(index1 + 1 <= l1.size()){
+        index1++;
+      }
+      if(index2 + 1 <= l2.size()){
+        index2++;
+      }
+      result.add(currDigitSum);
+    }
+    return result;
+  }
+
+  public static LinkedList<Integer> forwardsSum(LinkedList<Integer> l1,
+  LinkedList<Integer> l2){
+    LinkedList<Integer> result = new LinkedList<Integer>();
+    int remainder = 0;
+    int currDigitSum = 0;
+
+    int index1 = l1.size() - 1;
+    int index2 = l2.size() - 1;
+    while(index1 >= 0 && index2 >= 0){
+      currDigitSum = l1.get(index1) + l2.get(index2) + remainder;
+      remainder = 0;
+      if(currDigitSum >= 10){
+        int temp = currDigitSum;
+        remainder = temp/10;
+        currDigitSum = currDigitSum%10;
+      }
+      if(index1 + 1 <= l1.size()){
+        index1--;
+      }
+      if(index2 + 1 <= l2.size()){
+        index2--;
+      }
+      result.addFirst(currDigitSum);
+    }
+    return result;
   }
 }
