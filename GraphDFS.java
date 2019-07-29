@@ -5,6 +5,7 @@ import java.util.LinkedList;
 //A program that includes an implementation of a graph (based on adjacency
 //lists) and Depth First Search using queue implementation.
 //Graph construction takes O(E) time
+//DFS Implementation takes O(V+E) time
 //Author: Saket Agashe
 //Date: 27 July 2019
 public class GraphDFS{
