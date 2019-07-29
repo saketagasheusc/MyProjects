@@ -12,6 +12,7 @@ import java.io.*;
 //Date: 15 July 2019
 class FindKthLast{
   public static void main(String[] args){
+    //Testing STL linked list implementation
     LinkedList<String> stringList = new LinkedList<String>();
     int k = 2;
     stringList.add("A");
@@ -24,6 +25,7 @@ class FindKthLast{
     System.out.println("Linked list: " + stringList);
     System.out.println(k + "th to last element: " + ReturnK(stringList, k));
 
+    //Testing My implementation of a linked list
     ListThatsLinked ll = new ListThatsLinked();
     ll.insert(1);
     ll.insert(2);

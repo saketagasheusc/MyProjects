@@ -2,7 +2,15 @@ import java.util.*;
 import java.io.*;
 import java.lang.*;
 
+//My own implementation of a linked list
+//Stores int values
+//Insertion is O(N)
+//Deletion is O(N);
+//Access is O(N);
+//Author: Saket Agashe
+//Date: 25 July 2019
 class ListThatsLinked{
+  //Node Class for elements of list
   public static class Node{
     int value;
     Node next;
@@ -20,11 +28,14 @@ class ListThatsLinked{
   public static Node head;
   public static int size;
 
+  //Constructor
   public ListThatsLinked(){
     this.head = null;
     this.size = 0;
   }
 
+  //function to insert new values
+  //takes O(N) time
   public static void insert(int n){
     Node newNode = new Node(n);
     if(head == null){
@@ -41,6 +52,8 @@ class ListThatsLinked{
     size++;
   }
 
+  //Function to print out the ListThatsLinked
+  //Takes O(N) time
   public static void printList(){
     Node curr = head;
     int numNodes = 1;
