@@ -2,7 +2,12 @@ import java.util.*;
 import java.io.*;
 import java.lang.*;
 
+//A program that tests where two linked lists intersect (by node, not by value).
+//Runs in O(N) time where N is the length of the first linked list
+//Author: Saket Agashe
+//Date: 15 July 2019
 class IntersectionLL{
+  //Driver Function
   public static void main(String[] args){
     LinkedList l1 = new LinkedList();
     LinkedList l2 = new LinkedList();
@@ -24,10 +29,12 @@ class IntersectionLL{
     l1.printList();
     l2.printList();
 
-    System.out.println("L1 and L2 intersect at: " + intersects(l1, l2));
+    System.out.println("L1 and L2 intersect at: " + intersects(l1, l2) + " with the value " + intersects(l1, l2).value);
     System.out.println(l1.contains(n3));
   }
-
+  //Functoin to test if one Linked List contains any node present in another Linked
+  //List
+  //Runs in O(N)
   public static Node intersects(LinkedList l1, LinkedList l2){
     Node newIter = l1.head;
     while(newIter != null){
