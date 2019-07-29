@@ -2,8 +2,8 @@ import java.util.*;
 import java.io.*;
 import java.lang.*;
 
-class LinkedList{
-  class Node{
+class ListThatsLinked{
+  public static class Node{
     int value;
     Node next;
 
@@ -17,30 +17,41 @@ class LinkedList{
     }
   }
 
-  public Node head;
+  public static Node head;
+  public static int size;
+
+  public ListThatsLinked(){
+    this.head = null;
+    this.size = 0;
+  }
 
   public static void insert(int n){
     Node newNode = new Node(n);
-
-    if(this.head == null){
-      this.head == newNode;
+    if(head == null){
+      head = newNode;
     }
     else{
-      Node nextNode = this.head;
+      Node nextNode = head;
       while(nextNode.next != null){
         nextNode = nextNode.next;
       }
 
-      nextNode.next = new_node;
+      nextNode.next = newNode;
     }
+    size++;
   }
 
   public static void printList(){
-    Node curr = this.head;
+    Node curr = head;
+    int numNodes = 1;
     System.out.print("Linked List: ");
     while(curr != null){
-      System.out.print(currNode.value + " ");
-      currNode = currNode.next;
+      System.out.print(curr.value);
+      if(numNodes < size){
+        System.out.print(" -> ");
+      }
+      curr = curr.next;
+      numNodes++;
     }
     System.out.println();
   }
