@@ -1,37 +1,27 @@
-import java.lang.*;
-import java.util.*;
-import java.io.*;
+// Java program to check if two given strings are
+// rotations of each other
 
+class rotateString {
 
-class rotateJava{
-  public static void main(String[] args){
+	/* Function checks if passed strings (str1 and str2)
+	are rotations of each other */
+	static boolean areRotations(String str1, String str2)
+	{
+		// There lengths must be same and str2 must be
+		// a substring of str1 concatenated with str1.
+		return (str1.length() == str2.length()) &&
+			((str1 + str1).contains(str2));
+	}
 
-  }
+	// Driver method
+	public static void main(String[] args)
+	{
+		String str1 = "AACD";
+		String str2 = "ACDA";
 
-  public static void rotateMatrix(int N, int mat[][]){
-        for (int x = 0; x < N / 2; x++)
-        {
-            for (int y = x; y < N-x-1; y++)
-            {
-                int temp = mat[x][y];
-                mat[x][y] = mat[y][N-1-x];
-                mat[y][N-1-x] = mat[N-1-x][N-1-y];
-                mat[N-1-x][N-1-y] = mat[N-1-y][x];
-                mat[N-1-y][x] = temp;
-            }
-        }
-    }
-
-    public static void displayMatrix(int N, int mat[][]) { 
-       for (int i = 0; i < N; i++)
-       {
-           for (int j = 0; j < N; j++)
-               System.out.print(" " + mat[i][j]);
-
-           System.out.print("\n");
-       }
-       System.out.print("\n");
-   }
-
-
+		if (areRotations(str1, str2))
+			System.out.println("Yes");
+		else
+			System.out.printf("No");
+	}
 }
